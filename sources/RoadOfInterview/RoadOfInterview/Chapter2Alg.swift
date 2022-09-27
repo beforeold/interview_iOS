@@ -35,4 +35,32 @@ class Chapter2Alg {
         }
         fatalError("invalid input nums \(nums)")
     }
+    
+    // Page 33
+    private func reverse<T>(array: inout [T], start: Int, end: Int) {
+        var start = start
+        var end = end
+        while start < end {
+            (array[start], array[end]) = (array[end], array[start])
+            start += 1
+            end -= 1
+        }
+    }
+    
+    func reverseWords(_ string: String?) -> String? {
+        guard let string = string else {
+            return nil
+        }
+        
+        var chars = string.map { $0 }
+        var start = 0
+        for i in 0..<chars.count {
+            if i == chars.count - 1 || chars[i + 1] == " " {
+                reverse(array: &chars, start: start, end: i)
+                start = i + 2
+            }
+        }
+        
+        return String(chars)
+    }
 }
