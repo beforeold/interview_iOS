@@ -106,4 +106,44 @@ class Chapter2Alg {
         
         return prevDummy.next
     }
+    
+    func hasCycle(_ head: ListNode?) -> Bool {
+        var slow = head
+        var fast = head?.next
+        
+        while fast != nil && fast?.next != nil {
+            if slow === fast {
+                return true
+            }
+            
+            slow = slow?.next
+            fast = fast?.next?.next
+        }
+        
+        return false
+    }
+    
+    func delete(_ head: ListNode?, last n: Int) -> ListNode? {
+        let dummy = ListNode(0)
+        var prev: ListNode? = dummy
+        var post: ListNode? = dummy
+        
+        // n + 1 times
+        for _ in 0...n {
+            post = post?.next
+        }
+        
+        if post == nil {
+            return head
+        }
+        
+        while post != nil {
+            prev = prev?.next
+            post = post?.next
+        }
+        
+        prev?.next = prev?.next?.next
+        
+        return dummy.next
+    }
 }

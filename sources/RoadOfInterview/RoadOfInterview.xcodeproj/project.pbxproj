@@ -40,6 +40,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94279A0928E482A7004E5104 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				9478FD3A28E09A17004FF4FE /* AppDelegate.swift */,
+				9478FD3C28E09A17004FF4FE /* SceneDelegate.swift */,
+				9478FD3E28E09A17004FF4FE /* ViewController.swift */,
+				9478FD4028E09A17004FF4FE /* Main.storyboard */,
+				9478FD4328E09A18004FF4FE /* Assets.xcassets */,
+				9478FD4528E09A18004FF4FE /* LaunchScreen.storyboard */,
+				9478FD4828E09A18004FF4FE /* Info.plist */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		9478FD2E28E09A17004FF4FE = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				94C289FF28E2F73C0038D01F /* README.md */,
-				9478FD3A28E09A17004FF4FE /* AppDelegate.swift */,
-				9478FD3C28E09A17004FF4FE /* SceneDelegate.swift */,
-				9478FD3E28E09A17004FF4FE /* ViewController.swift */,
 				9478FD4E28E09A4B004FF4FE /* Chapter2Alg.swift */,
-				9478FD4028E09A17004FF4FE /* Main.storyboard */,
-				9478FD4328E09A18004FF4FE /* Assets.xcassets */,
-				9478FD4528E09A18004FF4FE /* LaunchScreen.storyboard */,
-				9478FD4828E09A18004FF4FE /* Info.plist */,
+				94279A0928E482A7004E5104 /* Other */,
 			);
 			path = RoadOfInterview;
 			sourceTree = "<group>";
