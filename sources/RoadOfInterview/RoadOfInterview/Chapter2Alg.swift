@@ -63,4 +63,47 @@ class Chapter2Alg {
         
         return String(chars)
     }
+    
+    // 链表左右排序：p36
+    
+    class ListNode {
+        var val: Int
+        var next: ListNode?
+        init(_ val: Int) {
+            self.val = val
+            self.next = nil
+        }
+    }
+    
+    func partion(head: ListNode?, x: Int) -> ListNode? {
+        let prevDummy = ListNode(0)
+        let postDummy = ListNode(0)
+        
+        // 注意这两个节点表示当前指向，均不为空
+        var prev = prevDummy
+        var post = postDummy
+        
+        var node = head
+        
+        while node != nil {
+            let curNode = node!
+            let val = curNode.val
+            if val > x {
+                prev.next = curNode
+                prev = curNode
+            } else {
+                post.next = curNode
+                post = curNode
+            }
+            node = curNode.next
+        }
+        
+        // 防止 post 链表尾节点指向 prev 链表节点，将其清空
+        post.next = nil
+        
+        // 拼接链表
+        prev.next = postDummy.next
+        
+        return prevDummy.next
+    }
 }
