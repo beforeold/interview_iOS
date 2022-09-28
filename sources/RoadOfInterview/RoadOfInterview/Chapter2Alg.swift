@@ -129,14 +129,19 @@ class Chapter2Alg {
         var post: ListNode? = dummy
         
         // n + 1 times
-        for _ in 0...n {
+        for _ in 0..<n {
             post = post?.next
         }
         
         if post == nil {
+            // no enough nodes
             return head
         }
         
+        // keep post?.next != nil to delete the node
+        // for last 3， delete 8，
+        //  6 7 8 9 10
+        //  . ^ _ . .
         while post != nil {
             prev = prev?.next
             post = post?.next
