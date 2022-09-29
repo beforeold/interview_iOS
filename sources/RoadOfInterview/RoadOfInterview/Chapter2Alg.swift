@@ -152,3 +152,118 @@ class Chapter2Alg {
         return dummy.next
     }
 }
+
+protocol Stack {
+    associatedtype Element
+    
+    var isEmpty: Bool { get }
+    var size: Int { get }
+    
+    var peek: Element? { get }
+    
+    mutating func push(_ element: Element)
+    
+    mutating func pop() -> Element?
+}
+
+
+struct IntegerStack: Stack {
+    typealias Element = Int
+    private var stack: [Int] = []
+
+    
+    var isEmpty: Bool {
+        return stack.isEmpty
+    }
+    
+    var size: Int {
+        return stack.count
+    }
+    
+    var peek: Int? {
+        return stack.last
+    }
+    
+    mutating func push(_ element: Int) {
+        stack.append(element)
+    }
+    
+    mutating func pop() -> Int? {
+        stack.popLast()
+    }
+}
+
+protocol Queue {
+    associatedtype Element
+    
+    var isEmpty: Bool { get }
+    var size: Int { get }
+    
+    var peek: Element? { get }
+    
+    mutating func enqueue(_ element: Element)
+    
+    mutating func dequeue() -> Element?
+}
+
+struct IntegerQueue1: Queue {
+    typealias Element = Int
+    private var queue = [Int]()
+    
+    var isEmpty: Bool {
+        return queue.isEmpty
+    }
+    
+    var size: Int {
+        return queue.count
+    }
+    
+    var peek: Int? {
+        return queue.first
+    }
+    
+    mutating func enqueue(_ element: Int) {
+        queue.append(element)
+    }
+    
+    mutating func dequeue() -> Int? {
+        if queue.isEmpty {
+            return nil
+        }
+        return queue.popLast()
+    }
+}
+
+struct IntegerQueue2: Queue {
+    typealias Element = Int
+    private var leftOut = [Int]()
+    private var rightIn = [Int]()
+    
+    var isEmpty: Bool {
+        return leftOut.isEmpty && rightIn.isEmpty
+    }
+    
+    var size: Int {
+        return leftOut.count + rightIn.count
+    }
+    
+    var peek: Int? {
+        return leftOut.isEmpty ? rightIn.first : leftOut.last
+    }
+    
+    mutating func enqueue(_ element: Int) {
+        rightIn.append(element)
+    }
+    
+    mutating func dequeue() -> Int? {
+        shift()
+        return leftOut.popLast()
+    }
+    
+    private mutating func shift() {
+        if leftOut.isEmpty {
+            leftOut = rightIn.reversed()
+            rightIn.removeAll()
+        }
+    }
+}
