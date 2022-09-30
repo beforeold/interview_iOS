@@ -412,3 +412,81 @@ struct MyStack2: Stack {
         (queueA, queueB) = (queueB, queueA)
     }
 }
+
+
+struct GenericStack<Element>: Stack {
+    private var stack: [Element] = []
+    
+    var isEmpty: Bool {
+        return stack.isEmpty
+    }
+    
+    var size: Int {
+        return stack.count
+    }
+    
+    var peek: Element? {
+        return stack.last
+    }
+    
+    mutating func push(_ element: Element) {
+        stack.append(element)
+    }
+    
+    mutating func pop() -> Element? {
+        stack.popLast()
+    }
+}
+
+func simplifyPath(_ path: String) -> String {
+    let components = path.components(separatedBy: "/")
+    
+    var stack = GenericStack<String>()
+    
+    for item in components {
+        if item == "." || item == "" {
+            continue
+        }
+        
+        if item == ".." {
+            _ = stack.pop()
+        } else {
+            stack.push(item)
+        }
+    }
+    
+    var string = ""
+    while !stack.isEmpty {
+        if let popped = stack.pop() {
+            string = popped + "/" + string
+        }
+    }
+    string = "/" + string
+    
+    return string
+}
+
+func simplifyPath2(_ path: String) -> String {
+    let components = path.components(separatedBy: "/")
+    
+    var stack = [String]()
+    
+    for item in components {
+        if item == "." || item == "" {
+            continue
+        }
+        
+        if item == ".." {
+            _ = stack.popLast()
+        } else {
+            stack.append(item)
+        }
+    }
+ 
+    if stack.isEmpty {
+        return "/"
+    }
+    return stack.reduce("") { partialResult, item in
+        return partialResult + "/" + item
+    }
+}
