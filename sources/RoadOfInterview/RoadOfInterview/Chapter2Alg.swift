@@ -507,3 +507,25 @@ func maxDepth(_ root: TreeNode?) -> Int {
     
     return max(maxDepth(root.left), maxDepth(root.right)) + 1
 }
+
+/// is valid binary search tree
+func isValidBST(_ root: TreeNode?) -> Bool {
+    return _isValidBSTNode(root, min: nil, max: nil)
+}
+
+func _isValidBSTNode(_ node: TreeNode?, min: Int?, max: Int?) -> Bool {
+    guard let node = node else {
+        return true
+    }
+    
+    if let min = min, node.val <= min {
+        return false
+    }
+    
+    if let max = max, node.val >= max {
+        return false
+    }
+    
+    return _isValidBSTNode(node.left, min: min, max: node.val)
+    && _isValidBSTNode(node.right, min: node.val, max: max)
+}
