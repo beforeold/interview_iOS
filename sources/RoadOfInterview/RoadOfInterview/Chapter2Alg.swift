@@ -618,7 +618,7 @@ func levelTranversal3(_ root: TreeNode?) -> [[TreeNodeValue]] {
   }
   
   while queue.count > 0 {
-    var size = queue.count
+    let size = queue.count
     var level = [TreeNodeValue]()
     
     for _ in 0..<size {
@@ -638,4 +638,16 @@ func levelTranversal3(_ root: TreeNode?) -> [[TreeNodeValue]] {
   }
   
   return ret
+}
+
+func quickSort(_ array: [Int]) -> [Int] {
+  guard array.count > 0 else {
+    return array
+  }
+  
+  let pivot = array[array.count / 2]
+  let left = array.filter { $0 < pivot }
+  let middle = array.filter { $0 == pivot }
+  let right = array.filter { $0 > pivot }
+  return quickSort(left) + middle + quickSort(right)
 }
