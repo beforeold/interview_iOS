@@ -553,3 +553,27 @@ func preorderTranversal(_ root: TreeNode?) -> [Int] {
     
     return ret
 }
+
+func levelTranversal(_ root: TreeNode?) -> [Int] {
+    guard let root = root else {
+        return []
+    }
+    
+    var ret = [Int]()
+    var queue = [TreeNode]()
+    queue.append(root)
+    
+    while !queue.isEmpty {
+        let dequeue = queue.removeFirst()
+        ret.append(dequeue.val)
+        if let left = dequeue.left {
+            queue.append(left)
+        }
+        
+        if let right = dequeue.right {
+            queue.append(right)
+        }
+    }
+    
+    return ret
+}
