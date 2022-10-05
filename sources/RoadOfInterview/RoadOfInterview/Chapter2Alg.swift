@@ -482,7 +482,7 @@ func simplifyPath2(_ path: String) -> String {
             stack.append(item)
         }
     }
- 
+    
     if stack.isEmpty {
         return "/"
     }
@@ -528,4 +528,28 @@ func _isValidBSTNode(_ node: TreeNode?, min: Int?, max: Int?) -> Bool {
     
     return _isValidBSTNode(node.left, min: min, max: node.val)
     && _isValidBSTNode(node.right, min: node.val, max: max)
+}
+
+func preorderTranversal(_ root: TreeNode?) -> [Int] {
+    guard let root = root else {
+        return []
+    }
+    
+    var ret = [Int]()
+    var stack = [TreeNode]()
+    stack.append(root)
+    
+    while !stack.isEmpty {
+        let popped = stack.removeLast()
+        ret.append(popped.val)
+        if let right = popped.right {
+            stack.append(right)
+        }
+        
+        if let left = popped.left {
+            stack.append(left)
+        }
+    }
+    
+    return ret
 }
