@@ -60,7 +60,9 @@
 				9478FD3928E09A17004FF4FE /* RoadOfInterview */,
 				9478FD3828E09A17004FF4FE /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		9478FD3828E09A17004FF4FE /* Products */ = {
 			isa = PBXGroup;
