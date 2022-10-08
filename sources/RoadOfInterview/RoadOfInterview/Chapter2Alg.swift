@@ -601,6 +601,28 @@ func preorderTraversal3(_ root: TreeNode?) -> [Int] {
   return ret
 }
 
+/// 先左结点都入队，否则从右边开始
+/// 参考《iOS 面试之道》实现
+func preorderTraversal4(_ root: TreeNode?) -> [Int] {
+  var node = root
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  
+  while node != nil || stack.count > 0 {
+    while node != nil {
+      ret.append(node!.val)
+      stack.append(node!)
+      node = node?.left
+    }
+    
+    let popped = stack.removeLast()
+    node = popped.right
+  }
+  
+  return ret
+}
+
+
 /// 先一直到最左，然后 pop 处理
 /// 基本等同于 inorderTraversal3
 func inorderTraversal(_ root: TreeNode?) -> [Int] {
