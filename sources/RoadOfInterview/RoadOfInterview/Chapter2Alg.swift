@@ -714,6 +714,49 @@ func postOrderTraversal(_ root: TreeNode?) -> [Int] {
   return ret.reversed()
 }
 
+/// 后序遍历，一直向左，并沿路保存，最后逐个 pop
+func postOrderTraversal2(_ root: TreeNode?) -> [Int] {
+  func isLeaf(_ node: TreeNode) -> Bool {
+    return node.left == nil && node.right == nil
+  }
+  
+  func isParent(_ node: TreeNode, prevPopped: TreeNode?) -> Bool {
+    guard let prevPopped = prevPopped else {
+      return false
+    }
+    return node.left === prevPopped || node.right === prevPopped
+  }
+  
+  guard let root = root else {
+    return []
+  }
+  
+  var prevPopped: TreeNode?
+  var stack = [TreeNode]()
+  var ret = [Int]()
+  stack.append(root)
+  
+  while stack.count > 0 {
+    let peek = stack.last!
+    if isLeaf(peek) || isParent(peek, prevPopped: prevPopped) {
+      let popped = stack.removeLast()
+      ret.append(popped.val)
+      prevPopped = popped
+      
+    } else {
+      if let right = peek.right {
+        stack.append(right)
+      }
+      if let left = peek.left {
+        stack.append(left)
+      }
+    }
+  }
+  
+  return ret.reversed()
+}
+
+
 func levelTraversal(_ root: TreeNode?) -> [Int] {
   guard let root = root else {
     return []
