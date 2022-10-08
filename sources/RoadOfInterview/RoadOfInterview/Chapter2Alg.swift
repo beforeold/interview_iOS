@@ -530,6 +530,7 @@ func _isValidBSTNode(_ node: TreeNode?, min: Int?, max: Int?) -> Bool {
   && _isValidBSTNode(node.right, min: node.val, max: max)
 }
 
+/// 思路：先根结点，再右左都入栈
 func preorderTraversal(_ root: TreeNode?) -> [Int] {
   guard let root = root else {
     return []
@@ -542,6 +543,7 @@ func preorderTraversal(_ root: TreeNode?) -> [Int] {
   while !stack.isEmpty {
     let popped = stack.removeLast()
     ret.append(popped.val)
+    
     if let right = popped.right {
       stack.append(right)
     }
@@ -553,6 +555,49 @@ func preorderTraversal(_ root: TreeNode?) -> [Int] {
   
   return ret
 }
+
+/// 先到最左边，保存右边的结点
+func preorderTraversal2(_ root: TreeNode?) -> [Int] {
+  var node = root
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  
+  while true {
+    if node != nil {
+      ret.append(node!.val)
+      if let right = node?.right {
+        stack.append(right)
+      }
+      node = node?.left
+    } else if stack.count > 0 {
+      node = stack.removeLast()
+    } else {
+      break
+    }
+  }
+  
+  return ret
+}
+
+/// 先左结点都入队，否则从右边开始
+func preorderTraversal3(_ root: TreeNode?) -> [Int] {
+  var node = root
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  
+  while node != nil || stack.count > 0 {
+    if node != nil {
+      ret.append(node!.val)
+      stack.append(node!)
+      node = node?.left
+    } else {
+      node = stack.removeLast().right
+    }
+  }
+  
+  return ret
+}
+
 
 /// 后序遍历，通过反转前序遍历进行实现
 func postOrderTraversal(_ root: TreeNode?) -> [Int] {
