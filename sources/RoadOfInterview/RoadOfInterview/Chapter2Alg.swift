@@ -557,6 +557,7 @@ func preorderTraversal(_ root: TreeNode?) -> [Int] {
 }
 
 /// 先到最左边，保存右边的结点
+/// 参考 MJ 实现
 func preorderTraversal2(_ root: TreeNode?) -> [Int] {
   var node = root
   var ret = [Int]()
@@ -580,6 +581,7 @@ func preorderTraversal2(_ root: TreeNode?) -> [Int] {
 }
 
 /// 先左结点都入队，否则从右边开始
+/// 参考《iOS 面试之道》实现
 func preorderTraversal3(_ root: TreeNode?) -> [Int] {
   var node = root
   var ret = [Int]()
@@ -591,7 +593,72 @@ func preorderTraversal3(_ root: TreeNode?) -> [Int] {
       stack.append(node!)
       node = node?.left
     } else {
-      node = stack.removeLast().right
+      let popped = stack.removeLast()
+      node = popped.right
+    }
+  }
+  
+  return ret
+}
+
+/// 先一直到最左，然后 pop 处理
+/// 基本等同于 inorderTraversal3
+func inorderTraversal(_ root: TreeNode?) -> [Int] {
+  var node = root
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  
+  while node != nil || stack.count > 0 {
+    while node != nil {
+      stack.append(node!)
+      node = node?.left
+    }
+    let popped = stack.removeLast()
+    ret.append(popped.val)
+    node = popped.right
+  }
+  
+  return ret
+}
+
+/// 先找到最左的结点，依次保存，然后开始使用
+/// 参考 MJ 实现
+func inorderTraversal2(_ root: TreeNode?) -> [Int] {
+  var node = root
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  
+  while true {
+    if node != nil {
+      stack.append(node!)
+      node = node?.left
+    } else if stack.count > 0 {
+      let popped = stack.removeLast()
+      ret.append(popped.val)
+      node = popped.right
+    } else {
+      break
+    }
+  }
+  
+  return ret
+}
+
+/// 先保存所有的左节点，然后开始使用
+/// 参考 《iOS 面试之道》的前序遍历实现
+func inorderTraversal3(_ root: TreeNode?) -> [Int] {
+  var node = root
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  
+  while node != nil || stack.count > 0 {
+    if node != nil {
+      stack.append(node!)
+      node = node?.left
+    } else {
+      let popped = stack.removeLast()
+      ret.append(popped.val)
+      node = popped.right
     }
   }
   
