@@ -530,7 +530,7 @@ func _isValidBSTNode(_ node: TreeNode?, min: Int?, max: Int?) -> Bool {
   && _isValidBSTNode(node.right, min: node.val, max: max)
 }
 
-func preorderTranversal(_ root: TreeNode?) -> [Int] {
+func preorderTraversal(_ root: TreeNode?) -> [Int] {
   guard let root = root else {
     return []
   }
@@ -554,7 +554,33 @@ func preorderTranversal(_ root: TreeNode?) -> [Int] {
   return ret
 }
 
-func levelTranversal(_ root: TreeNode?) -> [Int] {
+/// 后序遍历，通过反转前序遍历进行实现
+func postOrderTraversal(_ root: TreeNode?) -> [Int] {
+  guard let root = root else {
+    return []
+  }
+  
+  var stack = [TreeNode]()
+  var ret = [Int]()
+  stack.append(root)
+  
+  while stack.count > 0 {
+    let popped = stack.removeLast()
+    ret.append(popped.val)
+    
+    if let left = popped.left {
+      stack.append(left)
+    }
+    
+    if let right = popped.right {
+      stack.append(right)
+    }
+  }
+  
+  return ret.reversed()
+}
+
+func levelTraversal(_ root: TreeNode?) -> [Int] {
   guard let root = root else {
     return []
   }
@@ -578,7 +604,7 @@ func levelTranversal(_ root: TreeNode?) -> [Int] {
   return ret
 }
 
-func levelTranversal2(_ root: TreeNode?) -> [[Int]] {
+func levelTraversal2(_ root: TreeNode?) -> [[Int]] {
   var ret = [[Int]]()
   var queue = [TreeNode]()
   
@@ -587,12 +613,13 @@ func levelTranversal2(_ root: TreeNode?) -> [[Int]] {
   }
   
   while queue.count > 0 {
-    var size = queue.count
+    let size = queue.count
     var level = [Int]()
     
     for _ in 0..<size {
       let dequeue = queue.removeFirst()
       level.append(dequeue.val)
+      
       if let left = dequeue.left {
         queue.append(left)
       }
@@ -609,7 +636,7 @@ func levelTranversal2(_ root: TreeNode?) -> [[Int]] {
 }
 
 typealias TreeNodeValue = (Int, Int?, Int?)
-func levelTranversal3(_ root: TreeNode?) -> [[TreeNodeValue]] {
+func levelTraversal3(_ root: TreeNode?) -> [[TreeNodeValue]] {
   var ret = [[TreeNodeValue]]()
   var queue = [TreeNode]()
   
