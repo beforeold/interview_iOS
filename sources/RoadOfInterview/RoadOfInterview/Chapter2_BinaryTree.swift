@@ -295,9 +295,10 @@ func postOrderTraversal3_recommend(_ root: TreeNode?) -> [Int] {
     if popped.right == nil || popped.right === prevPopped {
       ret.append(popped.val)
       prevPopped = popped
-      // nil out for next loop continuing pop
+      // 清空重新进入循环
       node = nil
     } else {
+      // 重新入栈，并处理右子树
       stack.append(popped)
       node = popped.right
     }
