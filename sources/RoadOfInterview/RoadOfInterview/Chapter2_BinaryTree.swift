@@ -103,9 +103,9 @@ func preorderTraversal2(_ root: TreeNode?) -> [Int] {
 /// 先左结点都入队，否则从右边开始
 /// 优化：参考《iOS 面试之道》实现
 func preorderTraversal3_recommend(_ root: TreeNode?) -> [Int] {
-  var node = root
   var ret = [Int]()
   var stack = [TreeNode]()
+  var node = root
   
   while node != nil || stack.count > 0 {
     while node != nil {
@@ -189,9 +189,9 @@ func inorderTraversal2(_ root: TreeNode?) -> [Int] {
 /// 先一直到最左，然后 pop 处理
 /// 基本等同于 inorderTraversal2
 func inorderTraversal3_recommend(_ root: TreeNode?) -> [Int] {
-  var node = root
   var ret = [Int]()
   var stack = [TreeNode]()
+  var node = root
   
   while node != nil || stack.count > 0 {
     while node != nil {

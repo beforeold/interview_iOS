@@ -10,9 +10,20 @@ import Foundation
 struct BinaryTreeDemo {
   func preorderTraversal(_ root: TreeNode?) -> [Int] {
     var ret = [Int]()
-    ret = ret + ret
-//    var stack = [TreeNode]()
-//    var node = root
+    var stack = [TreeNode]()
+    var node = root
+    
+    while node != nil || stack.count > 0 {
+      while node != nil {
+        stack.append(node!)
+        ret.append(node!.val)
+        node = node?.left
+      }
+      
+      let popped = stack.removeLast()
+      node = popped.right
+    }
+    
     return ret
   }
 }
