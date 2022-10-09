@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// leetcode 链接
+/// 前序遍历：https://leetcode.cn/problems/binary-tree-preorder-traversal/
+/// 中序遍历：https://leetcode.cn/problems/binary-tree-inorder-traversal/
+/// 后序遍历：https://leetcode.cn/problems/binary-tree-postorder-traversal/
 public class TreeNode {
   public var val: Int
   public var left: TreeNode?
@@ -97,29 +101,8 @@ func preorderTraversal2(_ root: TreeNode?) -> [Int] {
 }
 
 /// 先左结点都入队，否则从右边开始
-/// 参考《iOS 面试之道》实现
-func preorderTraversal3(_ root: TreeNode?) -> [Int] {
-  var node = root
-  var ret = [Int]()
-  var stack = [TreeNode]()
-  
-  while node != nil || stack.count > 0 {
-    if node != nil {
-      ret.append(node!.val)
-      stack.append(node!)
-      node = node?.left
-    } else {
-      let popped = stack.removeLast()
-      node = popped.right
-    }
-  }
-  
-  return ret
-}
-
-/// 先左结点都入队，否则从右边开始
-/// 参考《iOS 面试之道》实现
-func preorderTraversal4(_ root: TreeNode?) -> [Int] {
+/// 优化：参考《iOS 面试之道》实现
+func preorderTraversal3_recommend(_ root: TreeNode?) -> [Int] {
   var node = root
   var ret = [Int]()
   var stack = [TreeNode]()
@@ -138,22 +121,22 @@ func preorderTraversal4(_ root: TreeNode?) -> [Int] {
   return ret
 }
 
-
-/// 先一直到最左，然后 pop 处理
-/// 基本等同于 inorderTraversal3
-func inorderTraversal(_ root: TreeNode?) -> [Int] {
+/// 先左结点都入队，否则从右边开始
+/// 参考《iOS 面试之道》实现
+func preorderTraversal4(_ root: TreeNode?) -> [Int] {
   var node = root
   var ret = [Int]()
   var stack = [TreeNode]()
   
   while node != nil || stack.count > 0 {
-    while node != nil {
+    if node != nil {
+      ret.append(node!.val)
       stack.append(node!)
       node = node?.left
+    } else {
+      let popped = stack.removeLast()
+      node = popped.right
     }
-    let popped = stack.removeLast()
-    ret.append(popped.val)
-    node = popped.right
   }
   
   return ret
@@ -161,7 +144,7 @@ func inorderTraversal(_ root: TreeNode?) -> [Int] {
 
 /// 先找到最左的结点，依次保存，然后开始使用
 /// 参考 MJ 实现
-func inorderTraversal2(_ root: TreeNode?) -> [Int] {
+func inorderTraversal(_ root: TreeNode?) -> [Int] {
   var node = root
   var ret = [Int]()
   var stack = [TreeNode]()
@@ -184,7 +167,7 @@ func inorderTraversal2(_ root: TreeNode?) -> [Int] {
 
 /// 先保存所有的左节点，然后开始使用
 /// 参考 《iOS 面试之道》的前序遍历实现
-func inorderTraversal3(_ root: TreeNode?) -> [Int] {
+func inorderTraversal2(_ root: TreeNode?) -> [Int] {
   var node = root
   var ret = [Int]()
   var stack = [TreeNode]()
@@ -198,6 +181,27 @@ func inorderTraversal3(_ root: TreeNode?) -> [Int] {
       ret.append(popped.val)
       node = popped.right
     }
+  }
+  
+  return ret
+}
+
+/// 先一直到最左，然后 pop 处理
+/// 基本等同于 inorderTraversal2
+func inorderTraversal3_recommend(_ root: TreeNode?) -> [Int] {
+  var node = root
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  
+  while node != nil || stack.count > 0 {
+    while node != nil {
+      stack.append(node!)
+      node = node?.left
+    }
+    
+    let popped = stack.removeLast()
+    ret.append(popped.val)
+    node = popped.right
   }
   
   return ret
@@ -231,6 +235,7 @@ func postOrderTraversal(_ root: TreeNode?) -> [Int] {
 }
 
 /// 后序遍历，一直向左，并沿路保存，最后逐个 pop
+/// 参考 MJ 实现
 func postOrderTraversal2(_ root: TreeNode?) -> [Int] {
   func isLeaf(_ node: TreeNode) -> Bool {
     return node.left == nil && node.right == nil
@@ -269,7 +274,36 @@ func postOrderTraversal2(_ root: TreeNode?) -> [Int] {
     }
   }
   
-  return ret.reversed()
+  return ret
+}
+
+/// 后序遍历，先找到最左边，再尝试 pop 或者切换到右子树
+/// 参考 LeetCode 官方实现
+func postOrderTraversal3_recommend(_ root: TreeNode?) -> [Int] {
+  var ret = [Int]()
+  var stack = [TreeNode]()
+  var node = root
+  var prevPopped: TreeNode? = nil
+  
+  while (node != nil || !stack.isEmpty) {
+    while node != nil {
+      stack.append(node!)
+      node = node?.left
+    }
+    
+    let popped = stack.removeLast()
+    if popped.right == nil || popped.right === prevPopped {
+      ret.append(popped.val)
+      prevPopped = popped
+      // nil out for next loop continuing pop
+      node = nil
+    } else {
+      stack.append(popped)
+      node = popped.right
+    }
+  }
+  
+  return ret
 }
 
 
