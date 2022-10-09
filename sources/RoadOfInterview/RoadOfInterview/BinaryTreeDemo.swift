@@ -72,4 +72,35 @@ struct BinaryTreeDemo {
     
     return ret
   }
+  
+  func levelOrderTraversal(_ root: TreeNode?) -> [[Int]] {
+    guard let root = root else {
+      return []
+    }
+    
+    var ret = [[Int]]()
+    var queue = [TreeNode]()
+    queue.append(root)
+    
+    while queue.count > 0 {
+      var level = [Int]()
+      
+      for _ in 0..<queue.count {
+        let dequeued = queue.removeFirst()
+        level.append(dequeued.val)
+        
+        if let left = dequeued.left {
+          queue.append(left)
+        }
+        
+        if let right = dequeued.right {
+          queue.append(right)
+        }
+      }
+      
+      ret.append(level)
+    }
+    
+    return ret
+  }
 }
