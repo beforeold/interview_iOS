@@ -17,4 +17,10 @@ struct ListDemo {
       end -= 1
     }
   }
+  
+  func reverse(string: String) -> String {
+    var chars = string.map { $0 }
+    reverse(&chars, start: 0, end: chars.count - 1)
+    return String(chars)
+  }
 }
