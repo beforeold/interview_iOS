@@ -18,6 +18,7 @@
 		9478FD4428E09A18004FF4FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9478FD4328E09A18004FF4FE /* Assets.xcassets */; };
 		9478FD4728E09A18004FF4FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9478FD4528E09A18004FF4FE /* LaunchScreen.storyboard */; };
 		9478FD4F28E09A4B004FF4FE /* Chapter2_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478FD4E28E09A4B004FF4FE /* Chapter2_List.swift */; };
+		94ADEF0828F5B8AB0072D5FF /* ListDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9478FD4628E09A18004FF4FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9478FD4828E09A18004FF4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9478FD4E28E09A4B004FF4FE /* Chapter2_List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_List.swift; sourceTree = "<group>"; };
+		94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemo.swift; sourceTree = "<group>"; };
 		94C289FF28E2F73C0038D01F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +57,7 @@
 				9478FD3C28E09A17004FF4FE /* SceneDelegate.swift */,
 				9478FD3E28E09A17004FF4FE /* ViewController.swift */,
 				9402AED228F2628E00059945 /* BinaryTreeDemo.swift */,
+				94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */,
 				9478FD4028E09A17004FF4FE /* Main.storyboard */,
 				9478FD4328E09A18004FF4FE /* Assets.xcassets */,
 				9478FD4528E09A18004FF4FE /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 				9402AED128F261D500059945 /* Chapter2_Sort.swift in Sources */,
 				9478FD3F28E09A17004FF4FE /* ViewController.swift in Sources */,
 				9402AED328F2628E00059945 /* BinaryTreeDemo.swift in Sources */,
+				94ADEF0828F5B8AB0072D5FF /* ListDemo.swift in Sources */,
 				9478FD4F28E09A4B004FF4FE /* Chapter2_List.swift in Sources */,
 				9402AECD28F2619600059945 /* Chapter2_StackAndQueue.swift in Sources */,
 				9478FD3B28E09A17004FF4FE /* AppDelegate.swift in Sources */,
