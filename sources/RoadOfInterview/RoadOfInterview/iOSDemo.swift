@@ -79,3 +79,25 @@ extension iOSDemo.ListNode {
     return self.superview
   }
 }
+
+
+extension iOSDemo {
+  func levelTranversal(view: UIView) -> [[UIView]] {
+    var ret = [[UIView]]()
+    var queue = [UIView]()
+    queue.append(view)
+    
+    while queue.count > 0 {
+      let levelSize = queue.count
+      var level = [UIView]()
+      for _ in 0..<levelSize {
+        let dequeued = queue.removeFirst()
+        level.append(dequeued)
+        queue.append(contentsOf: dequeued.subviews)
+      }
+      ret.append(level)
+    }
+    
+    return ret
+  }
+}
