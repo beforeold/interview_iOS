@@ -163,3 +163,115 @@ extension ListDemo {
     }
   }
 }
+
+fileprivate extension Array {
+  mutating func push(_ element: Element) {
+    append(element)
+  }
+  
+  mutating func pop() -> Element {
+    return removeLast()
+  }
+  
+  func stackPeek() -> Element? {
+    return last
+  }
+}
+
+fileprivate extension Array {
+  mutating func enqueue(_ element: Element) {
+    append(element)
+  }
+  
+  mutating func dequeue() -> Element {
+    return removeFirst()
+  }
+  
+  func queuePeek() -> Element? {
+    return first
+  }
+}
+
+extension ListDemo {
+  class MyQueue {
+    typealias Element = Int
+    
+    private var left = [Element]()
+    private var right = [Element]()
+    
+    func enqueue(_ element: Element) {
+      left.push(element)
+    }
+    
+    func dequeue() -> Element {
+      shift()
+      
+      return right.pop()
+    }
+    
+    var count: Int {
+      return left.count + right.count
+    }
+    
+    func peek() -> Element? {
+      shift()
+      return right.stackPeek()
+    }
+    
+    func shift() {
+      if right.count > 0 {
+        return
+      }
+      
+      while left.count > 0 {
+        right.push(left.pop())
+      }
+    }
+  }
+}
+
+extension ListDemo {
+  class MyStack {
+    typealias Element = Int
+    
+    private var left = [Element]()
+    private var right = [Element]()
+    
+    func push(_ element: Element) {
+      left.append(element)
+    }
+    
+    func pop() -> Element {
+      ensureLeftWithOneElement()
+      
+      return left.dequeue()
+    }
+    
+    var count: Int {
+      return left.count + right.count
+    }
+    
+    func peek() -> Element? {
+      guard count > 0 else {
+        return nil
+      }
+      
+      ensureLeftWithOneElement()
+      
+      let ret = left.dequeue()
+      push(ret)
+      return ret
+    }
+    
+    func ensureLeftWithOneElement() {
+      if left.count == 0 {
+        (left, right) = (left, right)
+      }
+      
+      while left.count > 1 {
+        right.enqueue(left.dequeue())
+      }
+    }
+  }
+}
+
