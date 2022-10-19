@@ -18,6 +18,10 @@ class ViewController: UIViewController {
   func test() {
     ListDemo.test()
     
+    
+    let ret = NSStringDemo().addStrings(withNum1: "123", string2: "4567")
+    assert(ret == String(123 + 4567))
+    
     print("all done")
   }
   

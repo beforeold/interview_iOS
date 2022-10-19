@@ -19,6 +19,8 @@
 		9478FD4728E09A18004FF4FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9478FD4528E09A18004FF4FE /* LaunchScreen.storyboard */; };
 		9478FD4F28E09A4B004FF4FE /* Chapter2_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478FD4E28E09A4B004FF4FE /* Chapter2_List.swift */; };
 		94ADEF0828F5B8AB0072D5FF /* ListDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */; };
+		94C522F328FF7B61000DD95A /* StringDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C522F228FF7B61000DD95A /* StringDemo.swift */; };
+		94C522F728FF7C19000DD95A /* NSStringDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C522F628FF7C19000DD95A /* NSStringDemo.m */; };
 		94CF654E28FBF4A600AF2CAA /* iOSDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF654D28FBF4A600AF2CAA /* iOSDemo.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,10 @@
 		9478FD4E28E09A4B004FF4FE /* Chapter2_List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_List.swift; sourceTree = "<group>"; };
 		94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemo.swift; sourceTree = "<group>"; };
 		94C289FF28E2F73C0038D01F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		94C522F228FF7B61000DD95A /* StringDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDemo.swift; sourceTree = "<group>"; };
+		94C522F428FF7C18000DD95A /* RoadOfInterview-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RoadOfInterview-Bridging-Header.h"; sourceTree = "<group>"; };
+		94C522F528FF7C19000DD95A /* NSStringDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringDemo.h; sourceTree = "<group>"; };
+		94C522F628FF7C19000DD95A /* NSStringDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringDemo.m; sourceTree = "<group>"; };
 		94CF654D28FBF4A600AF2CAA /* iOSDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDemo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,10 +67,14 @@
 				9402AED228F2628E00059945 /* BinaryTreeDemo.swift */,
 				94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */,
 				94CF654D28FBF4A600AF2CAA /* iOSDemo.swift */,
+				94C522F228FF7B61000DD95A /* StringDemo.swift */,
+				94C522F528FF7C19000DD95A /* NSStringDemo.h */,
+				94C522F628FF7C19000DD95A /* NSStringDemo.m */,
 				9478FD4028E09A17004FF4FE /* Main.storyboard */,
 				9478FD4328E09A18004FF4FE /* Assets.xcassets */,
 				9478FD4528E09A18004FF4FE /* LaunchScreen.storyboard */,
 				9478FD4828E09A18004FF4FE /* Info.plist */,
+				94C522F428FF7C18000DD95A /* RoadOfInterview-Bridging-Header.h */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -132,6 +142,7 @@
 				TargetAttributes = {
 					9478FD3628E09A17004FF4FE = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1400;
 					};
 				};
 			};
@@ -171,7 +182,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C522F328FF7B61000DD95A /* StringDemo.swift in Sources */,
 				9402AED128F261D500059945 /* Chapter2_Sort.swift in Sources */,
+				94C522F728FF7C19000DD95A /* NSStringDemo.m in Sources */,
 				9478FD3F28E09A17004FF4FE /* ViewController.swift in Sources */,
 				9402AED328F2628E00059945 /* BinaryTreeDemo.swift in Sources */,
 				94ADEF0828F5B8AB0072D5FF /* ListDemo.swift in Sources */,
@@ -325,6 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -343,6 +357,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.beforeold.RoadOfInterview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RoadOfInterview/RoadOfInterview-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -353,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -371,6 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.beforeold.RoadOfInterview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RoadOfInterview/RoadOfInterview-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
