@@ -41,6 +41,11 @@ struct ListDemo {
 
 extension ListDemo {
   static func test() {
+    testReverse()
+    testMinStack()
+  }
+  
+  static func testReverse() {
     do {
       var array = [2, 4, 6]
       ListDemo().reverse(&array, start: 0, end: array.count - 1)
@@ -61,6 +66,22 @@ extension ListDemo {
     do {
       let ret = ListDemo().reverseWords(of: "it was monday")
       assert(ret == "ti saw yadnom")
+    }
+  }
+  
+  static func testMinStack() {
+    let stack = MinStack()
+    stack.push(3)
+    stack.push(4)
+    stack.push(8)
+    stack.push(7)
+    stack.push(2)
+    
+    stack.showStack()
+    
+    while stack.count > 0 {
+      print("top: \(stack.top()), min: \(stack.getMin())")
+      stack.pop()
     }
   }
 }
@@ -105,5 +126,40 @@ extension ListDemo {
     let set1 = Set(a1)
     let set2 = Set(a2)
     return set1.subtracting(set2).first!
+  }
+}
+
+extension ListDemo {
+  class MinStack {
+    private var stack = [(element: Int, minValue: Int)]()
+    
+    init() {
+      stack.append((.max, .max))
+    }
+    
+    func push(_ val: Int) {
+      let newMin = min(stack.last!.minValue, val)
+      stack.append((val, newMin))
+    }
+    
+    func pop() {
+      stack.removeLast()
+    }
+    
+    func top() -> Int {
+      return stack.last!.element
+    }
+    
+    func getMin() -> Int {
+      return stack.last!.minValue
+    }
+    
+    var count: Int {
+      return stack.count - 1
+    }
+    
+    func showStack() {
+      print(stack[1...])
+    }
   }
 }
