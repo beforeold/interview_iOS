@@ -164,7 +164,7 @@ extension ListDemo {
   }
 }
 
-fileprivate extension Array {
+extension Array {
   mutating func push(_ element: Element) {
     append(element)
   }
@@ -178,7 +178,7 @@ fileprivate extension Array {
   }
 }
 
-fileprivate extension Array {
+extension Array {
   mutating func enqueue(_ element: Element) {
     append(element)
   }

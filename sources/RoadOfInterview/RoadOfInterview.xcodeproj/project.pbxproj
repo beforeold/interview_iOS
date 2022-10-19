@@ -21,6 +21,7 @@
 		94ADEF0828F5B8AB0072D5FF /* ListDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */; };
 		94C522F328FF7B61000DD95A /* StringDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C522F228FF7B61000DD95A /* StringDemo.swift */; };
 		94C522F728FF7C19000DD95A /* NSStringDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C522F628FF7C19000DD95A /* NSStringDemo.m */; };
+		94C5231929002CE3000DD95A /* QueueStackDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C5231829002CE3000DD95A /* QueueStackDemo.swift */; };
 		94CF654E28FBF4A600AF2CAA /* iOSDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF654D28FBF4A600AF2CAA /* iOSDemo.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		94C522F428FF7C18000DD95A /* RoadOfInterview-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RoadOfInterview-Bridging-Header.h"; sourceTree = "<group>"; };
 		94C522F528FF7C19000DD95A /* NSStringDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringDemo.h; sourceTree = "<group>"; };
 		94C522F628FF7C19000DD95A /* NSStringDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringDemo.m; sourceTree = "<group>"; };
+		94C5231829002CE3000DD95A /* QueueStackDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueStackDemo.swift; sourceTree = "<group>"; };
 		94CF654D28FBF4A600AF2CAA /* iOSDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDemo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				9478FD3E28E09A17004FF4FE /* ViewController.swift */,
 				9402AED228F2628E00059945 /* BinaryTreeDemo.swift */,
 				94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */,
+				94C5231829002CE3000DD95A /* QueueStackDemo.swift */,
 				94CF654D28FBF4A600AF2CAA /* iOSDemo.swift */,
 				94C522F228FF7B61000DD95A /* StringDemo.swift */,
 				94C522F528FF7C19000DD95A /* NSStringDemo.h */,
@@ -191,6 +194,7 @@
 				9478FD4F28E09A4B004FF4FE /* Chapter2_List.swift in Sources */,
 				9402AECD28F2619600059945 /* Chapter2_StackAndQueue.swift in Sources */,
 				94CF654E28FBF4A600AF2CAA /* iOSDemo.swift in Sources */,
+				94C5231929002CE3000DD95A /* QueueStackDemo.swift in Sources */,
 				9478FD3B28E09A17004FF4FE /* AppDelegate.swift in Sources */,
 				9478FD3D28E09A17004FF4FE /* SceneDelegate.swift in Sources */,
 				9402AECF28F261C600059945 /* Chapter2_BinaryTree.swift in Sources */,
