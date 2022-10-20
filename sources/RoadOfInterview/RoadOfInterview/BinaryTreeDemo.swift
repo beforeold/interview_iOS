@@ -146,3 +146,32 @@ extension BinaryTreeDemo {
     }
   }
 }
+
+extension BinaryTreeDemo._day_20221020_ {
+  // 面试题54. 二叉搜索树的第 k 大节点（中序遍历 + 提前返回，清晰图解）
+  // https://leetcode.cn/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/solution/mian-shi-ti-54-er-cha-sou-suo-shu-de-di-k-da-jie-d/
+  
+  // https://leetcode.cn/problems/merge-two-sorted-lists/
+  func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
+    let dummy = ListNode(0)
+    var curNode: ListNode? = dummy
+    
+    var list1 = list1
+    var list2 = list2
+    
+    while list1 != nil || list2 != nil {
+      if list1!.val < list2!.val {
+        curNode?.next = list1
+        list1 = list1?.next
+      } else {
+        curNode?.next = list2
+        list2 = list2?.next
+      }
+      curNode = curNode?.next
+    }
+    
+    curNode = list1 ?? list2
+    
+    return dummy.next
+  }
+}

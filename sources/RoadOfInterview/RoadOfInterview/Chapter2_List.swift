@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias ListNode = Chapter2Alg.ListNode
+
 class Chapter2Alg {
   /// 数组中是否包含两个数之和是目标值
   func twoSum(nums: [Int], targetNum: Int) -> Bool {
