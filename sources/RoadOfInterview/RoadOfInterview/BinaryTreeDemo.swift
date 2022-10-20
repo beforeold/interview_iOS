@@ -40,7 +40,7 @@ struct BinaryTreeDemo {
       
       let popped = stack.removeLast()
       ret.append(popped.val)
-      node = node?.right
+      node = popped.right
     }
     
     return ret
@@ -66,7 +66,7 @@ struct BinaryTreeDemo {
         
       } else {
         stack.append(popped)
-        node = node?.right
+        node = popped.right
       }
     }
     
@@ -120,7 +120,7 @@ extension BinaryTreeDemo {
         
         let popped = stack.removeLast()
         ret.append(popped.val)
-        node = node?.right
+        node = popped.right
       }
       
       return ret
@@ -139,7 +139,7 @@ extension BinaryTreeDemo {
         
         let popped = stack.removeLast()
         ret.append(popped.val)
-        node = node?.left
+        node = popped.left
       }
       
       return ret
@@ -150,6 +150,33 @@ extension BinaryTreeDemo {
 extension BinaryTreeDemo._day_20221020_ {
   // 面试题54. 二叉搜索树的第 k 大节点（中序遍历 + 提前返回，清晰图解）
   // https://leetcode.cn/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/solution/mian-shi-ti-54-er-cha-sou-suo-shu-de-di-k-da-jie-d/
+  
+  class Solution {
+      func kthLargest(_ root: TreeNode?, _ k: Int) -> Int {
+        var count = 0
+        var stack = [TreeNode]()
+        var node = root
+        
+        while node != nil || stack.count > 0 {
+          while node != nil {
+            stack.append(node!)
+            node = node?.right
+          }
+          
+          let popped = stack.removeLast()
+          count += 1
+          
+          if count == k {
+            return popped.val
+          }
+          
+          node = popped.left
+        }
+        
+        fatalError()
+      }
+  }
+  
   
   // https://leetcode.cn/problems/merge-two-sorted-lists/
   func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
