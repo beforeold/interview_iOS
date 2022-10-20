@@ -104,3 +104,45 @@ struct BinaryTreeDemo {
     return ret
   }
 }
+
+extension BinaryTreeDemo {
+  class _day_20221020_ {
+    func inorderTraversal(_ root: TreeNode?) -> [Int] {
+      var ret = [Int]()
+      var stack = [TreeNode]()
+      var node = root
+      
+      while node != nil || stack.count > 0 {
+        while node != nil {
+          stack.append(node!)
+          node = node?.left
+        }
+        
+        let popped = stack.removeLast()
+        ret.append(popped.val)
+        node = node?.right
+      }
+      
+      return ret
+    }
+    
+    func inorderTraversal_right_middle_left(_ root: TreeNode?) -> [Int] {
+      var ret = [Int]()
+      var stack = [TreeNode]()
+      var node = root
+      
+      while node != nil || stack.count > 0 {
+        while node != nil {
+          stack.append(node!)
+          node = node?.right
+        }
+        
+        let popped = stack.removeLast()
+        ret.append(popped.val)
+        node = node?.left
+      }
+      
+      return ret
+    }
+  }
+}
