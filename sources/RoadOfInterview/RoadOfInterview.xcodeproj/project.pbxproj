@@ -19,6 +19,7 @@
 		9478FD4728E09A18004FF4FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9478FD4528E09A18004FF4FE /* LaunchScreen.storyboard */; };
 		9478FD4F28E09A4B004FF4FE /* Chapter2_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478FD4E28E09A4B004FF4FE /* Chapter2_List.swift */; };
 		94ADEF0828F5B8AB0072D5FF /* ListDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */; };
+		94BB9750290EB51A00CB89D6 /* ListDemo2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BB974F290EB51A00CB89D6 /* ListDemo2.swift */; };
 		94C522F328FF7B61000DD95A /* StringDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C522F228FF7B61000DD95A /* StringDemo.swift */; };
 		94C522F728FF7C19000DD95A /* NSStringDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C522F628FF7C19000DD95A /* NSStringDemo.m */; };
 		94C5231929002CE3000DD95A /* QueueStackDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C5231829002CE3000DD95A /* QueueStackDemo.swift */; };
@@ -40,6 +41,7 @@
 		9478FD4828E09A18004FF4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9478FD4E28E09A4B004FF4FE /* Chapter2_List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_List.swift; sourceTree = "<group>"; };
 		94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemo.swift; sourceTree = "<group>"; };
+		94BB974F290EB51A00CB89D6 /* ListDemo2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDemo2.swift; sourceTree = "<group>"; };
 		94C289FF28E2F73C0038D01F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		94C522F228FF7B61000DD95A /* StringDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDemo.swift; sourceTree = "<group>"; };
 		94C522F428FF7C18000DD95A /* RoadOfInterview-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RoadOfInterview-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				9478FD3E28E09A17004FF4FE /* ViewController.swift */,
 				9402AED228F2628E00059945 /* BinaryTreeDemo.swift */,
 				94ADEF0728F5B8AB0072D5FF /* ListDemo.swift */,
+				94BB974F290EB51A00CB89D6 /* ListDemo2.swift */,
 				94C5231829002CE3000DD95A /* QueueStackDemo.swift */,
 				94CF654D28FBF4A600AF2CAA /* iOSDemo.swift */,
 				94C522F228FF7B61000DD95A /* StringDemo.swift */,
@@ -188,6 +191,7 @@
 				94C522F328FF7B61000DD95A /* StringDemo.swift in Sources */,
 				9402AED128F261D500059945 /* Chapter2_Sort.swift in Sources */,
 				94C522F728FF7C19000DD95A /* NSStringDemo.m in Sources */,
+				94BB9750290EB51A00CB89D6 /* ListDemo2.swift in Sources */,
 				9478FD3F28E09A17004FF4FE /* ViewController.swift in Sources */,
 				9402AED328F2628E00059945 /* BinaryTreeDemo.swift in Sources */,
 				94ADEF0828F5B8AB0072D5FF /* ListDemo.swift in Sources */,
