@@ -22,4 +22,24 @@ struct ListDemo2 {
     
     return array
   }
+  
+  func reverseLinkedList(_ root: ListNode?) -> ListNode? {
+    // 注意临界条件
+    if root?.next == nil {
+      return root
+    }
+    
+    // 逐个构建新的链表
+    var head = root
+    var newHead: ListNode? = nil
+    
+    while head != nil {
+      let nextNode = head?.next
+      head?.next = newHead
+      newHead = head
+      head = nextNode
+    }
+    
+    return newHead
+  }
 }
