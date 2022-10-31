@@ -42,4 +42,17 @@ struct ListDemo2 {
     
     return newHead
   }
+  
+  func reverseLinkedList_recursion(_ head: ListNode?) -> ListNode? {
+    if head?.next == nil {
+      return head
+    }
+    
+    let subHead = reverseLinkedList_recursion(head?.next)
+    let tail = head?.next
+    tail?.next = head
+    head?.next = nil
+    
+    return subHead
+  }
 }
