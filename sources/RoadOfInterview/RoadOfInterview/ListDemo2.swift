@@ -23,14 +23,14 @@ struct ListDemo2 {
     return array
   }
   
-  func reverseLinkedList(_ root: ListNode?) -> ListNode? {
+  func reverseLinkedList(_ head: ListNode?) -> ListNode? {
     // 注意临界条件
-    if root?.next == nil {
-      return root
+    if head?.next == nil {
+      return head
     }
     
     // 逐个构建新的链表
-    var head = root
+    var head = head
     var newHead: ListNode? = nil
     
     while head != nil {
