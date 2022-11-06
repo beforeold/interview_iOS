@@ -101,3 +101,21 @@ extension iOSDemo {
     return ret
   }
 }
+
+extension iOSDemo {
+  func findViewOf<T: UIView>(type: T.Type,
+                       in view: UIView) -> [T] {
+    var ret = [T]()
+    
+    if let view = view as? T {
+      ret.append(view)
+    }
+    
+    let sub = view.subviews.reduce([T]()) { partialResult, view in
+      return partialResult + findViewOf(type: type, in: view)
+    }
+    ret += sub
+    
+    return ret
+  }
+}
